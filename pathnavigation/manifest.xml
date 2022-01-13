@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.1" uuid="pathnavigation">
+ <names>
+  <name lang="en_US">PathNavigation</name>
+  <name lang="en_US-x-scrald">PathNavigation</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+  <language>de_DE</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+  <language>de_DE</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+ <requirements>
+  <naoqiRequirement minVersion="2.5" maxVersion="2.5"/>
+  <robotRequirement model="JULIETTE"/>
+ </requirements>
+</package>

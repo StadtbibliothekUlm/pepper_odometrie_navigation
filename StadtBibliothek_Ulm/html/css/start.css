@@ -1,0 +1,16 @@
+body{
+    background-image: url("../images/Startscreen_inkl_startbtn.png");
+    font-family: Open Sans Condensed;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#StartButton{
+    position: absolute;
+    width: 490px;
+    height: 105px;
+    top: 525px;
+    left: 395px;
+}

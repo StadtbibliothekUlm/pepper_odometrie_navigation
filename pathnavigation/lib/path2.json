@@ -1,0 +1,21 @@
+{
+   "_comment":"Path Pos1 -> Pos3",
+   "sections":[
+      {
+         "direction":"F",
+         "length":0.8
+      },
+      {
+         "direction":"L",
+         "length":3.7
+      },
+      {
+         "direction":"L",
+         "length":1.4
+      },
+      {
+         "direction":"L",
+         "length":0.0
+      }
+   ]
+}

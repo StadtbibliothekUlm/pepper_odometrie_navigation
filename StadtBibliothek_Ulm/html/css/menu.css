@@ -1,0 +1,31 @@
+body{
+	background-image: url("../images/auswahlmenu.png");
+	font-family: Open Sans Condensed;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.menu-button-box{
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    top: 290px;
+}
+
+#theke{
+	left: 220px;
+}
+
+#bib{
+	left: 515px;
+}
+
+#games{
+	left: 810px;
+}

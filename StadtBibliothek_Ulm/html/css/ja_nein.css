@@ -1,0 +1,54 @@
+body{
+	background-image: url("../images/Ja_Nein_Auswahl.png");
+	font-family: Open Sans Condensed;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.ja_nein_textbox{
+	text-align: center;
+	margin: 25px;
+	height: 350px;
+	color: green;
+	font-size: 70px;
+}
+
+.ja_nein-button-box{
+	position: absolute;
+	width: 320px;
+    height: 165px;
+	top: 404px;
+}
+
+#ja.ja_nein-button-box{
+	left: 290px;
+}
+
+#nein.ja_nein-button-box{
+	left: 670px;
+}
+
+.ja_nein-button-box-nav{
+	position: absolute;
+	width: 320px;
+    height: 165px;
+	top: 404px;
+}
+
+#ja.ja_nein-button-box-nav{
+	left: 100px;
+}
+
+#nein.ja_nein-button-box-nav{
+	left: 480px;
+}
+
+#nav.ja_nein-button-box-nav{
+    left: 860px;
+}

@@ -1,0 +1,43 @@
+body{
+	background-image: url("../images/games.png");
+	font-family: Open Sans Condensed;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.games-button-box{
+    position: absolute;
+    height: 245px;
+    width: 245px;
+    top: 278px;
+}
+
+.games-back-button{
+	position: absolute;
+    height: 64px;
+    width: 64px;
+    top: 9px;
+    left: 10px;
+}
+
+#vgw{
+	left: 80px;
+}
+
+#ttt{
+	left: 371px;
+}
+
+#fm{
+	left: 664px;
+}
+
+#hm{
+	left: 956px;
+}

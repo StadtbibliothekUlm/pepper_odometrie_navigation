@@ -1,0 +1,129 @@
+topic: ~bibliothek_topic()
+language: ged
+
+concept:(ja) [ja "na klar" gerne "aber sicher" natürlich]
+concept:(nein) [nein ne nee niemals]
+concept:(hier) hier 
+concept:(standort) Standort
+concept:(beenden) [beenden schließen Abbruch abbrechen zurück]
+
+#########
+# Start #
+#########
+
+u:(e:onStart) ^gotoReactivate(start)
+
+proposal: %start $Ulm/position="ja_nein" $Ulm/ja_nein_context="menu" $Ulm/ja_nein_text="Kann ich dir helfen, oder willst du etwas spielen?" $Ulm/showURL="ja_nein.html" Hallo ich bin Pepper, Kann ich dir helfen, oder willst du etwas spielen? $Ulm/timer_start=1
+
+###########
+# Ja/Nein #
+###########
+
+u:(~ja $Ulm/pohition=="ja_nein") $Ulm/ja_nein_antwort=$Ulm/ja_nein_context
+u:(~nein $Ulm/position=="ja_nein") $Ulm/ja_nein_antwort="no"
+u:(~standort $Entrance/NoNav==0 $Ulm/position=="ja_nein") $Ulm/ja_nein_antwort="nav"
+
+u:(e:Ulm/ja_nein_antwort $Ulm/ja_nein_antwort=="menu") ^gotoReactivate(menu)
+u:(e:Ulm/ja_nein_antwort $Ulm/ja_nein_antwort=="theke") ^gotoReactivate(theke)
+u:(e:Ulm/ja_nein_antwort $Ulm/ja_nein_antwort=="bib") ^gotoReactivate(bib)
+u:(e:Ulm/ja_nein_antwort $Ulm/ja_nein_antwort=="games") ^gotoReactivate(spiele)
+u:(e:Ulm/ja_nein_antwort $Entrance/NoNav==0 $Ulm/ja_nein_antwort=="nav") ^gotoReactivate(navigation)
+u:(e:Ulm/ja_nein_antwort $Ulm/ja_nein_antwort=="no" $Ulm/ja_nein_context=="menu") $Ulm/init=1 
+u:(e:Ulm/ja_nein_antwort $Ulm/ja_nein_antwort=="no" $ENMove/Position=="pos1") ^gotoReactivate(menu)
+u:(e:Ulm/ja_nein_antwort $Ulm/ja_nein_antwort=="no" $Entrance/NoNav==0 $ENMove/Position=="pos2") $Ulm/ja_nein_context="return" $Ulm/start_navigation=1 Bitte gib mir etwas Platz ich fahre zurück zu meiner Startposition
+u:(e:Ulm/ja_nein_antwort $Ulm/ja_nein_antwort=="no" $Entrance/NoNav==0 $ENMove/Position=="pos3") $Ulm/ja_nein_context="return" $Ulm/start_navigation=1 Bitte gib mir etwas Platz ich fahre zurück zu meiner Startposition
+u:(e:Ulm/ja_nein_antwort $Ulm/ja_nein_antwort=="no") ^gotoReactivate(menu)
+
+##############
+# Navigation #
+##############
+
+proposal: %navigation $Ulm/timer_stop=1 Ok, bitte gib mir etwas Platz zum fahren. $Ulm/start_navigation=1
+
+########
+# Menu #
+########
+
+concept:(ThekeInput) ["Theke" "Zeig {[mir uns bitte]} die Theke" "Kannst du mir die Theke erklären"]
+
+concept:(BibliothekInput) ["Bibliothek" "Bibliothek der Dinge" "Zeig {[mir uns bitte]} die [Bibliothek "Bibliothek der Dinge"]" "Kannst du mir die [Bibliothek "Bibliothek der Dinge"] erklären"]
+
+concept:(SpieleInput) ["Zeig {[mir uns bitte]} die Spiele" "Ich [möchte will "würde gerne"] {bitte} {ein Spiel} spielen" "Lass uns {bitte} {ein Spiel} spielen" "Wollen wir ein Spiel spielen"  "Kannst du ein Spiel spielen" "Willst du ein Spiel spielen" "Spiele" "{Können wir}{bitte} spielen"] 
+
+u:(e:show_Menu) ^gotoReactivate(menu)
+u:(e:Ulm/showMenu) ^gotoReactivate(menu)
+
+proposal: %menu $Ulm/timer_stop=1 $Ulm/position="menu" $Ulm/showURL="menu.html" Ich kann dir die Theke oder die Bibliothek der Dinge erklären oder du kannst mit mir spielen. Was möchtest du tun? $Ulm/timer_start=1
+    u1:(~ThekeInput $Entrance/NoNav==0) ^gotoReactivate(ja_nein_theke)
+    u1:(~ThekeInput $Entrance/NoNav==1) ^gotoReactivate(ja_nein_theke_nonav)
+    u1:(~BibliothekInput $Entrance/NoNav==0) ^gotoReactivate(ja_nein_bib)
+    u1:(~BibliothekInput $Entrance/NoNav==1) ^gotoReactivate(ja_nein_bib_nonav)
+    u1:(~SpieleInput) ^gotoReactivate(ja_nein_games)
+    
+
+u:(e:Ulm/start_info_theke $Entrance/NoNav==0 $Ulm/position=="menu") ^gotoReactivate(ja_nein_theke)
+u:(e:Ulm/start_info_theke $Entrance/NoNav==1 $Ulm/position=="menu") ^gotoReactivate(ja_nein_theke_nonav)
+u:(e:Ulm/start_info_bib $Entrance/NoNav==0 $Ulm/position=="menu") ^gotoReactivate(ja_nein_bib)
+u:(e:Ulm/start_info_bib $Entrance/NoNav==1 $Ulm/position=="menu") ^gotoReactivate(ja_nein_bib_nonav)
+u:(e:Ulm/start_info_games $Ulm/position=="menu") ^gotoReactivate(ja_nein_games)
+
+proposal: %ja_nein_theke $Ulm/timer_stop=1 $Ulm/position="ja_nein" $Ulm/ja_nein_context="theke" $Ulm/ja_nein_text="Soll ich dir die Theke erklären?" $Ulm/showURL="ja_nein_nav.html" Soll ich dir die Theke hier erklären oder lieber am Standort? $Ulm/timer_start=1
+
+proposal: %ja_nein_theke_nonav $Ulm/timer_stop=1 $Ulm/position="ja_nein" $Ulm/ja_nein_context="theke" $Ulm/ja_nein_text="Soll ich dir die Theke erklären?" $Ulm/showURL="ja_nein.html" Soll ich dir die Theke erklären? $Ulm/timer_start=1
+
+proposal: %ja_nein_bib $Ulm/timer_stop=1 $Ulm/position="ja_nein" $Ulm/ja_nein_context="bib" $Ulm/ja_nein_text="Soll ich dir die Bibliothek der Dinge erklären?" $Ulm/showURL="ja_nein_nav.html" Soll ich dir die Bibliothek der Dinge hier erklären oder lieber am Standort? $Ulm/timer_start=1
+
+proposal: %ja_nein_bib_nonav $Ulm/timer_stop=1 $Ulm/position="ja_nein" $Ulm/ja_nein_context="bib" $Ulm/ja_nein_text="Soll ich dir die Bibliothek der Dinge erklären?" $Ulm/showURL="ja_nein.html" Soll ich dir die Bibliothek der Dinge erklären? $Ulm/timer_start=1
+
+proposal: %ja_nein_games $Ulm/timer_stop=1 $Ulm/position="ja_nein" $Ulm/ja_nein_context="games" $Ulm/ja_nein_text="Soll ich dir die Auswahl der Spiele zeigen?" $Ulm/showURL="ja_nein.html" Soll ich dir die auswahl der Spiele zeigen? $Ulm/timer_start=1
+    
+#########
+# Theke #
+#########
+
+proposal: %theke $Ulm/timer_stop=1 $Ulm/position="theke" $Ulm/start_Theke=1 
+
+u:(e:Ulm/ThekeDone) $Ulm/timer_stop=1 $Ulm/position="ja_nein" $Ulm/ja_nein_context="theke" $Ulm/ja_nein_text="Die Erklärung erneut hören?" $Ulm/showURL="ja_nein.html" Möchtest du die Erklärung der Theke erneut hören? $Ulm/timer_start=1
+
+########################
+# Bibliothek der Dinge #
+########################
+
+proposal: %bib $Ulm/timer_stop=1 $Ulm/position="bib" $Ulm/start_Bib=1
+
+u:(e:Ulm/BibDone) $Ulm/timer_stop=1 $Ulm/position="ja_nein" $Ulm/ja_nein_context="bib" $Ulm/ja_nein_text="Die Erklärung erneut hören?" $Ulm/showURL="ja_nein.html" Möchtest du die Erklärung der Bibliothek erneut hören? $Ulm/timer_start=1
+
+##########
+# Spiele #
+##########
+
+concept:(Huetchen) ["Hütchen spiel" "{Lass uns} Hütchen spielen" "Zeig mir das Hütchenspiel" "öffne das hütchenspiel" "starte das Hütchen spiel"] 
+concept:(TicTacToe) ["{["Lass uns” "wollen wir” "Ich [möchte will]"]} {jetzt} ["Tic Tac Toh" "Drei gewinnt" "Kreis und Kreuz"] {spielen}"] 
+concept:(VierGewinnt) ["{["Lass uns" "wollen wir" "Ich [möchte will]"]} {jetzt} Vier gewinnt {spielen}"] 
+concept:(Senso) ["{["Lass uns" "Wollen wir"]} [[Senso Seenso Zenso Zenzo] "das Spiel mit den Farben"] {spielen}" Farbspiel Farbenspiel "Farben {Reihen} Folge"] 
+concept:(weiter) ["unterhalte mich weiter" "mach weiter" "weitermachen"] 
+concept:(anderes) ["ich möchte etwas anderes machen" "mach was anderes" "{zeig mir} [was etwas] anderes" "was kannst du noch"]
+
+proposal: %spiele $Ulm/timer_stop=1 $Ulm/position="games" $Ulm/showURL="games.html" ^rand["Was möchtest du spielen?" "Was wollen wir spielen?"] $Ulm/timer_start=1
+
+u: (e:Ulm/game $Ulm/game=="ttt") ^gotoReactivate(tictactoe)
+u: (e:Ulm/game $Ulm/game=="vgw") ^gotoReactivate(viergewinnt)
+u: (e:Ulm/game $Ulm/game=="fm") ^gotoReactivate(senso)
+u: (e:Ulm/game $Ulm/game=="hm") ^gotoReactivate(huetchen)
+
+u: (~Huetchen $Ulm/position=="games") %huetchen $Ulm/timer_stop=1 Ich starte das Hütchen Spiel $games_2/huetchenstart=1 Unter einem der Hütchen ist der geeimnisvolle Ball versteckt. Pass gut auf und lass dich nicht ablenken. Nur so kannst du am Ende gewinnen. $Ulm/position="running_game" 
+
+u: (~VierGewinnt $Ulm/position=="games") %viergewinnt $Ulm/timer_stop=1 Ich starte Vier Gewinnt $games_2/4gwstart=1 Spiele Vier Gewinnt gegen mich. Wer zuerst vier in einer Reihe hat ist der Gewinner. Egal ob horizontal, vertikal oder diagonal. $Ulm/position="running_game"
+
+u: (~TicTacToe $Ulm/position=="games") %tictactoe $Ulm/timer_stop=1 Ich starte Tic Tac Toh $Ulm/position="running_game" $games_2/tictactoestart=1 
+
+u: (~Senso $Ulm/position=="games") %senso $Ulm/timer_stop=1 Ich starte Senso. $games_2/sensostart=1 Pass gut auf und wiederhol die Abfolge $Ulm/position="running_game"
+
+u:(~beenden $Ulm/position=="running_game") ^gotoReactivate(game_end)
+u:(e:onForceStopGame $Ulm/position=="running_game") ^gotoReactivate(game_end)
+
+u:([e:games_2/gameOver e:games_2/gameWin]) %game_end \pau=300\ $Ulm/timer_stop=1 $Ulm/position="ja_nein" $Ulm/ja_nein_context="games" $Ulm/ja_nein_text="Willst du noch etwas anderes spielen?" $Ulm/showURL="ja_nein.html" Willst du noch etwas anderes spielen? $Ulm/timer_start=1
+
+
+
+
