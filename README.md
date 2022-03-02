@@ -18,7 +18,7 @@
   
   <p align="right">(<a href="#top">back to top</a>)</p>
   
-  <h3>promotion and implementation</h3>
+  <h3>Promotion</h3>
   The project of user support by a humanoid robot was created in cooperation between the Ulm City Library and the Digital Agenda office of the City of Ulm and was  realized with funds from the "Smart Cities made in DE" funding of the Ministry of the Interior, Building and Community (BMI).
   
   <p align="right">(<a href="#top">back to top</a>)</p>
@@ -46,6 +46,7 @@
     
    <h3>How was this project developed ?</h3>
    Developed on version 2.5 of NAOqi, Pepper's operating system, this application was developed using the Choregraphe software. 
+  
   <p align="right">(<a href="#top">back to top</a>)</p>
     
    <h3>Result</h3>
