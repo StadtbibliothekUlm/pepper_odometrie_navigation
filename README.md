@@ -8,7 +8,7 @@
   <h2 align="center">Softbank pepper supports our visitors <br> [navigation with odometrie]</h2>
   
   <!-- ABOUT THE PROJECT -->
-  <h3>introduction</h3>
+  <h3>Introduction</h3>
 
   The aim of the Public Library Ulm is to use robotics to assist citizens and employees in our library.
   For this purpose our humanoid robot shut be able to move autonomously in our central library, among users and visitors. 
@@ -21,19 +21,14 @@
   <h3>Built With</h3>
   <ul>
   <li>Softbank Choregraphe suite (https://developer.softbankrobotics.com/)</li>
-  <li>Tea</li>
-  <li>Milk</li>
+  <li>Milk (https://www.python.org/)</li> 
+  <li>node-red (https://nodered.org/)</li>
+
   </ul> 
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-
+  
+  
+  
 <p align="right">(<a href="#top">back to top</a>)</p>
    
   
