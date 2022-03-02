@@ -29,6 +29,7 @@
     <li>Milk (https://www.python.org/)</li> 
     <li>node-red (https://nodered.org/)</li>
     <li>Softbank Pepper (python-version) </li>
+    <li>Javascript (https://de.wikipedia.org/wiki/JavaScript) </li>
   </ul> 
 
   <p align="right">(<a href="#top">back to top</a>)</p>
