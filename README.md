@@ -61,7 +61,7 @@
     <img src="images/3.JPG" alt="Logo" width="400" height="400">
   </div>
   <div align="center">
-    <img src="images/3.JPG" alt="Logo" width="400" height="400">
+    <img src="images/4.JPG" alt="Logo" width="400" height="400">
   </div>
  
    <p align="right">(<a href="#top">back to top</a>)</p>
