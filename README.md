@@ -54,7 +54,7 @@
     
    <h3>Result</h3>
     
-  <video width="320" height="270" volume=0 loop>
+  <video width="320" height="270" volume=0>
     <source src="images/grundfunktionalitaet_pepper25.mp4" type="video/mp4"</source>
   </video>
  
