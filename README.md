@@ -35,11 +35,14 @@
   <h3>About the Project</h3>
   <b> project goal</b> <br>
   "Realization of an indoor navigation based on the Softbank Pepper (python-version) ". Limited by the hardware used in the pepper
+  The robot tries to get the visitor's attention and supports them in using the library account and the "library of things"
+  The user is guided through the information by means of dialogs.
+  Different games with and against the robot were realized as an entertaining element.
   <p>
    Through this project, the Public Library Ulm became a pioneer in Germany for the implementation of indoor navigation on a python-based robot Pepper<br>
-   The indoor navigation could be implemented fundamentally<br>
-   Python Pepper was enabled for rudimentary indoor navigation through this pilot project<br>
-   100% reliable navigation could not be realized due to sensor limitations of the hardware platform. <br>
+   The indoor navigation could be implemented fundamentally.<br>
+   Python Pepper was enabled for rudimentary indoor navigation through this pilot project.<br>
+   100% reliable navigation could not be realized due to sensor limitations of the hardware platform.<br>
    Limmitations are for example: Laser scanning points, accuracy of odometry and visual comparison of the environment
     
    <p align="right">(<a href="#top">back to top</a>)</p> 
