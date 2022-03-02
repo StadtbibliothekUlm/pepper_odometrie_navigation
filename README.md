@@ -54,9 +54,15 @@
     
    <h3>Result</h3>
     
-  <video width="320" height="270" volume=0>
-    <source src="images/grundfunktionalitaet_pepper25.mp4" type="video/mp4"</source>
-  </video>
+  <div align="center">
+    <img src="images/2.JPG" alt="Logo" width="400" height="400">
+  </div>
+  <div align="center">
+    <img src="images/3.JPG" alt="Logo" width="400" height="400">
+  </div>
+  <div align="center">
+    <img src="images/3.JPG" alt="Logo" width="400" height="400">
+  </div>
  
    <p align="right">(<a href="#top">back to top</a>)</p>
 
